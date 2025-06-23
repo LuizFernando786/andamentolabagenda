@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>LabAgenda</title>
+</head>
+<body>
+    <h1>LabAgenda - Agendamentos</h1>
+
+    <h2>Adicionar Agendamento</h2>
+    <form action="/adicionar" method="POST">
+        <label>Nome:</label><br>
+        <input type="text" name="nome" required><br>
+
+        <label>Data:</label><br>
+        <input type="date" name="data" required><br>
+
+        <label>Hora:</label><br>
+        <input type="time" name="hora" required><br>
+
+        <label>Descrição:</label><br>
+        <input type="text" name="descricao"><br><br>
+
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <h2>Lista de Agendamentos</h2>
+    <ul>
+        {% for agendamento in agendamentos %}
+            <li>
+                <strong>{{ agendamento[1] }}</strong> - 
+                {{ agendamento[2] }} às {{ agendamento[3] }} —
+                {{ agendamento[4] }}
+                <a href="/deletar/{{ agendamento[0] }}">[Excluir]</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
