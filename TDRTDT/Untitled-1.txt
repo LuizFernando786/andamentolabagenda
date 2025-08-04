@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mercado com JSON embutido</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .produto {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Super Mercado</h1>
+  <div id="organização"></div> <!-- essa é a div usada -->
+
+  <script>
+    const detalhes = [
+      {
+        "id": 1,
+        "nome": "Leite Integral",
+        "marca": "Italac",
+        "preco": 4.99,
+        "codigo_barras": "7891234567890",
+        "validade": "15/07/2025",
+        "peso_volume": "1L",
+        "estoque": 120,
+        "categoria": "Laticínios"
+      },
+      {
+        "id": 2,
+        "nome": "Arroz Tipo 1",
+        "marca": "Tio João",
+        "preco": 25.9,
+        "codigo_barras": "7891020304050",
+        "validade": "01/01/2025",
+        "peso_volume": "5kg",
+        "estoque": 75,
+        "categoria": "Cereais"
+      }, 
+      {
+        "id": 3,
+        "nome": "Feijão Carioca",
+        "marca": "Kicaldo",
+        "preco": 8.49,
+        "codigo_barras": "7890987654321",
+        "validade": "2025-12-10",
+        "peso_volume": "1kg",
+        "estoque": 50,
+        "categoria": "Cereais"
+    },
+    {
+        "id": 4,
+        "nome": "Sabonete",
+        "marca": "Lux",
+        "preco": 2.79,
+        "codigo_barras": "7890011223344",
+        "validade": "2027-03-01",
+        "peso_volume": "85g",
+        "estoque": 200,
+        "categoria": "Higiene Pessoal"
+    },
+    {
+        "id": 5,
+        "nome": "Detergente Líquido",
+        "marca": "Ypê",
+        "preco": 2.49,
+        "codigo_barras": "7898765432100",
+        "validade": "2026-05-20",
+        "peso_volume": "500ml",
+        "estoque": 180,
+        "categoria": "Limpeza"
+    },
+    {
+        "id": 6,
+        "nome": "Café Torrado e Moído",
+        "marca": "Melitta",
+        "preco": 16.9,
+        "codigo_barras": "7893344556677",
+        "validade": "2025-11-05",
+        "peso_volume": "500g",
+        "estoque": 90,
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 7,
+        "nome": "Refrigerante Cola",
+        "marca": "Coca-Cola",
+        "preco": 8.99,
+        "codigo_barras": "7894900011517",
+        "validade": "2025-10-30",
+        "peso_volume": "2L",
+        "estoque": 140,
+        "categoria": "Bebidas"
+    },
+    {
+        "id": 8,
+        "nome": "Margarina com Sal",
+        "marca": "Qualy",
+        "preco": 7.49,
+        "codigo_barras": "7896004000195",
+        "validade": "2025-08-22",
+        "peso_volume": "500g",
+        "estoque": 60,
+        "categoria": "Laticínios"
+    },
+    {
+        "id": 9,
+        "nome": "Óleo de Soja",
+        "marca": "Liza",
+        "preco": 7.99,
+        "codigo_barras": "7891095801120",
+        "validade": "2026-02-14",
+        "peso_volume": "900ml",
+        "estoque": 100,
+        "categoria": "Alimentos"
+    },
+    {
+        "id": 10,
+        "nome": "Macarrão Espaguete",
+        "marca": "Renata",
+        "preco": 4.49,
+        "codigo_barras": "7896303200037",
+        "validade": "2027-01-10",
+        "peso_volume": "500g",
+        "estoque": 85,
+        "categoria": "Alimentos"
+    }
+    
+    ];
+
+    const container = document.getElementById("organização");
+
+    detalhes.forEach(produto => {
+      const div = document.createElement("div");
+      div.className = "produto";
+      div.id = "produto-" + produto.id;
+
+      div.innerHTML = `
+        <strong>Nome:</strong> ${produto.nome}<br>
+        <strong>Marca:</strong> ${produto.marca}<br>
+        <strong>Preço:</strong> R$ ${produto.preco.toFixed(2)}<br>
+        <strong>Código de Barras:</strong> ${produto.codigo_barras}<br>
+        <strong>Validade:</strong> ${produto.validade}<br>
+        <strong>Peso:</strong> ${produto.peso_volume}<br>
+        <strong>Estoque:</strong> ${produto.estoque}<br>
+        <strong>Categoria:</strong> ${produto.categoria}<br>
+      `;
+
+      container.appendChild(div);
+    });
+  </script>
+
+</body>
+</html>
